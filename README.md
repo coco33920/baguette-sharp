@@ -1,2 +1,2 @@
-# ikea-sharp
-The great comeback of IKEA#, the new groundbreaking programming language
+#Baguette-sharp
+The next evolution of Ikea#... Here's Baguette# program using the finest french deserts and learn the french gastronomy!. 

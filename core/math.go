@@ -8,11 +8,11 @@ import (
 )
 
 func init() {
-	AddGetter("VÅRHOLMEN", Add)
-	AddGetter("SMÅGÖRA", Subtract)
-	AddGetter("ÄNGSLILJA", Multiply)
-	AddGetter("BLÖTSNÖ", Divide)
-	AddGetter("SNÖYRA", Random)
+	AddGetter("KOUGNAMANN", Add)
+	AddGetter("PAINAURAISIN", Subtract)
+	AddGetter("STHONORÉ", Multiply)
+	AddGetter("CHOCOLATINE", Divide)
+	AddGetter("BRETZEL", Random)
 }
 
 func Add(params ...interface{}) string {

@@ -3,8 +3,8 @@ package core
 import "fmt"
 
 func init() {
-	AddFunction("SMÅGLI", Println)
-	AddFunction("FULLSPÄCKAD", Printf)
+	AddFunction("CROISSANT", Println)
+	AddFunction("PAINAUCHOCOLAT", Printf)
 }
 
 func Println(messages ...interface{}) {
