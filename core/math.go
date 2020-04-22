@@ -2,17 +2,19 @@ package core
 
 import (
 	"../log"
+	"math"
 	"math/rand"
 	"strconv"
 	"time"
 )
 
 func init() {
-	AddGetter("KOUGNAMANN", Add)
+	AddGetter("CANELÉ", Add)
 	AddGetter("PAINAURAISIN", Subtract)
 	AddGetter("STHONORÉ", Multiply)
 	AddGetter("CHOCOLATINE", Divide)
 	AddGetter("BRETZEL", Random)
+	AddGetter("KOUGNAMANN", Power)
 }
 
 func Add(params ...interface{}) string {
@@ -33,6 +35,11 @@ func Multiply(params ...interface{}) string {
 func Divide(params ...interface{}) string {
 	a, b := ConvertParams(params...)
 	return strconv.Itoa(a / b)
+}
+
+func Power(params ...interface{}) string{
+	a, b := ConvertParams(params...)
+	return strconv.Itoa(int(math.Pow(float64(a), float64(b))))
 }
 
 func Random(params ...interface{}) string {
