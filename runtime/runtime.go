@@ -10,7 +10,7 @@ import (
 func Run(ast []parser.Node) []parser.Node {
 	for i := 0; i < len(ast); i++ {
 		node := ast[i]
-
+		//fmt.Println(node.Value, node.Params)
 		// Execute the found method
 		if node.Type == "CallExpression" {
 			params := GetParams(node)

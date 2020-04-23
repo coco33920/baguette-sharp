@@ -14,5 +14,6 @@ func Save(params ...interface{}) {
 }
 
 func Get(params ...interface{}) string {
+	fmt.Println(cache[fmt.Sprintf("%v", params[0])])
 	return cache[fmt.Sprintf("%v", params[0])]
 }

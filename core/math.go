@@ -2,6 +2,7 @@ package core
 
 import (
 	"../log"
+	"fmt"
 	"math"
 	"math/rand"
 	"strconv"
@@ -15,6 +16,7 @@ func init() {
 	AddGetter("CHOCOLATINE", Divide)
 	AddGetter("BRETZEL", Random)
 	AddGetter("KOUGNAMANN", Power)
+	AddGetter("BAGUETTEVIÉNOISE", Logarithm)
 }
 
 func Add(params ...interface{}) string {
@@ -29,6 +31,8 @@ func Subtract(params ...interface{}) string {
 
 func Multiply(params ...interface{}) string {
 	a, b := ConvertParams(params...)
+	fmt.Println(a, b)
+	fmt.Println("Fonction multiply was called")
 	return strconv.Itoa(a * b)
 }
 
@@ -37,7 +41,7 @@ func Divide(params ...interface{}) string {
 	return strconv.Itoa(a / b)
 }
 
-func Power(params ...interface{}) string{
+func Power(params ...interface{}) string {
 	a, b := ConvertParams(params...)
 	return strconv.Itoa(int(math.Pow(float64(a), float64(b))))
 }
@@ -53,9 +57,16 @@ func Random(params ...interface{}) string {
 	return strconv.Itoa(rand.Intn(b-a) + a)
 }
 
+func Logarithm(params ...interface{}) string {
+	a, b := ConvertParams(params...)
+	return FormatNumber(Loga(a, b))
+}
+
 // ConvertParams converts two given params into integers
 func ConvertParams(params ...interface{}) (int, int) {
+
 	if len(params) != 2 {
+		fmt.Println(params)
 		log.Errorf("You need to specify two parameters.")
 	}
 
@@ -64,4 +75,12 @@ func ConvertParams(params ...interface{}) (int, int) {
 	intB, _ := strconv.Atoi(b)
 
 	return intA, intB
+}
+
+func FormatNumber(a float64) string {
+	return fmt.Sprintf("%.0f", a)
+}
+
+func Loga(a int, b int) float64 {
+	return math.Log(float64(a)) / math.Log(float64(b))
 }

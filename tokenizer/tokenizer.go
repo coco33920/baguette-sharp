@@ -48,7 +48,6 @@ func Tokenize(code string) []Token {
 			tokens = append(tokens, AppendNumberValue())
 		}
 	}
-
 	return tokens
 }
 
