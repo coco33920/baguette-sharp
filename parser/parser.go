@@ -2,7 +2,6 @@ package parser
 
 import (
 	"../tokenizer"
-	"fmt"
 	"strings"
 )
 
@@ -35,9 +34,6 @@ func Parse(_tokens []tokenizer.Token) []Node {
 	// Iterate through the tokens
 	for currentIndex < len(tokens) {
 		node := Iterate()
-		if node.Type == CallExpression {
-			fmt.Println(node)
-		}
 
 		if node.Type != "" {
 			program = append(program, node)
@@ -82,7 +78,6 @@ func Iterate() Node {
 			// If we found another parentheses, use recursion
 			if tokens[currentIndex+1].Value == tokenizer.LeftParentheses {
 				currentIndex++
-				fmt.Println("Another parenthesis was found at", tokens[currentIndex-1])
 				call.Params = append(call.Params, Iterate())
 			}else{
 				call.Params = append(call.Params, Node{
@@ -95,7 +90,6 @@ func Iterate() Node {
 
 		}
 		currentIndex++
-		fmt.Println(call)
 		return call
 	}
 

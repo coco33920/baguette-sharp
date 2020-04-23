@@ -31,8 +31,6 @@ func Subtract(params ...interface{}) string {
 
 func Multiply(params ...interface{}) string {
 	a, b := ConvertParams(params...)
-	fmt.Println(a, b)
-	fmt.Println("Fonction multiply was called")
 	return strconv.Itoa(a * b)
 }
 

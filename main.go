@@ -5,7 +5,6 @@ import (
 	"./parser"
 	"./tokenizer"
 	"./runtime"
-	"fmt"
 	"io/ioutil"
 	"os"
 )
@@ -21,12 +20,8 @@ func main() {
 	if err != nil {
 		log.Errorf(err)
 	}
-	fmt.Println(bytes)
 	// Execute the code
 	tokens := tokenizer.Tokenize(string(bytes))
 	ast := parser.Parse(tokens)
 	runtime.Run(ast)
-	//tokens := tokenizer.Tokenize("CANELÉ CHOUQUETTE MADELEINE CHOUQUETTE PARISBREST first PARISBREST CLAFOUTIS MADELEINE CHOUQUETTE PARISBREST second PARISBREST CLAFOUTIS CLAFOUTIS BAGUETTE")
-	//program := parser.Parse(tokens)
-	//fmt.Println(program)
 }
