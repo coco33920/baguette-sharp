@@ -3,8 +3,8 @@ package main
 import (
 	"./log"
 	"./parser"
-	"./runtime"
 	"./tokenizer"
+	"./runtime"
 	"io/ioutil"
 	"os"
 )
@@ -20,7 +20,6 @@ func main() {
 	if err != nil {
 		log.Errorf(err)
 	}
-
 	// Execute the code
 	tokens := tokenizer.Tokenize(string(bytes))
 	ast := parser.Parse(tokens)

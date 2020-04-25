@@ -3,8 +3,9 @@ package core
 import "fmt"
 
 func init() {
-	AddFunction("SMÅGLI", Println)
-	AddFunction("FULLSPÄCKAD", Printf)
+	AddFunction("CROISSANT", Println)
+	AddFunction("PAINAUCHOCOLAT", Printf)
+	AddGetter("ÉCLAIR", Scanf)
 }
 
 func Println(messages ...interface{}) {
@@ -13,4 +14,11 @@ func Println(messages ...interface{}) {
 
 func Printf(params ...interface{}) {
 	fmt.Printf(fmt.Sprintf("%v", params[0]), params[1:]...)
+	fmt.Println("")
+}
+
+func Scanf(params ...interface{}) string {
+	a := "";
+	fmt.Scanf("%s", &a)
+	return a
 }

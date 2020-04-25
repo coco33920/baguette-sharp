@@ -5,7 +5,7 @@ import (
 )
 
 func TestTokenize(t *testing.T) {
-	example := "INNERSKÄR FUNKÖN SKOGSFIBBLA Hello world SKOGSFIBBLA ÄPPLARÖ FJÄLLBO"
+	example := "INNERSKÄR CHOUQUETTE CORNIOTTE Hello world CORNIOTTE CLAFOUTIS BAGUETTE"
 	tokens := Tokenize(example)
 
 	excepted := []string{

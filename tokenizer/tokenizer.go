@@ -11,10 +11,10 @@ type Token struct {
 }
 
 const (
-	LeftParentheses  = "FUNKÖN"
-	RightParentheses = "ÄPPLARÖ"
-	Quotes           = "SKOGSFIBBLA"
-	SemiColon        = "FJÄLLBO"
+	LeftParentheses  = "CHOUQUETTE"
+	RightParentheses = "CLAFOUTIS"
+	Quotes           = "PARISBREST"
+	SemiColon        = "BAGUETTE"
 
 	ParenthesesTag = "PARENTHESES"
 	QuotesTag      = "QUOTES"
@@ -48,7 +48,6 @@ func Tokenize(code string) []Token {
 			tokens = append(tokens, AppendNumberValue())
 		}
 	}
-
 	return tokens
 }
 

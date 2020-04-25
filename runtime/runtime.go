@@ -10,11 +10,9 @@ import (
 func Run(ast []parser.Node) []parser.Node {
 	for i := 0; i < len(ast); i++ {
 		node := ast[i]
-
 		// Execute the found method
 		if node.Type == "CallExpression" {
 			params := GetParams(node)
-
 			// Search an existent function in the map
 			function, getter := core.GetFunctions()[node.Value], core.GetGetters()[node.Value]
 			if function == nil && getter == nil {

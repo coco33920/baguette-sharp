@@ -5,8 +5,8 @@ import "fmt"
 var cache = map[string]string{}
 
 func init() {
-	AddFunction("TILLGÅNG", Save)
-	AddGetter("SMÅKALLT", Get)
+	AddFunction("QUATREQUART", Save)
+	AddGetter("MADELEINE", Get)
 }
 
 func Save(params ...interface{}) {

@@ -39,7 +39,6 @@ func Parse(_tokens []tokenizer.Token) []Node {
 			program = append(program, node)
 		}
 	}
-
 	return program
 }
 
@@ -79,7 +78,6 @@ func Iterate() Node {
 			// If we found another parentheses, use recursion
 			if tokens[currentIndex+1].Value == tokenizer.LeftParentheses {
 				currentIndex++
-
 				call.Params = append(call.Params, Iterate())
 			}else{
 				call.Params = append(call.Params, Node{
@@ -92,7 +90,6 @@ func Iterate() Node {
 
 		}
 		currentIndex++
-
 		return call
 	}
 
