@@ -86,7 +86,7 @@ func Iterate() Node {
 				})
 			}
 
-			// Add the element to the param
+			// Add the element to the params
 
 		}
 		currentIndex++
