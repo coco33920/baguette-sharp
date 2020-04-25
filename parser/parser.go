@@ -10,6 +10,8 @@ const (
 	NumberLiteral  = "NumberLiteral"
 	SemiColon      = "SemiColon"
 	String         = "String"
+	Operator	   = "Operator"
+
 )
 
 var (
@@ -55,6 +57,9 @@ func Iterate() Node {
 			Value: token.Value,
 		}
 	}
+	// The given token is a IF
+
+
 
 	// Iterate through the parameters inside the parentheses
 	if token.Value == tokenizer.LeftParentheses {

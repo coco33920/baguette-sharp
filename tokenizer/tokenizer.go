@@ -1,6 +1,7 @@
 package tokenizer
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -10,17 +11,24 @@ type Token struct {
 	Value string
 }
 
+// IF ( condition ) { ... } ENDIF=> condition false on saute après le endif condition true on change rien
+
 const (
 	LeftParentheses  = "CHOUQUETTE"
 	RightParentheses = "CLAFOUTIS"
 	Quotes           = "PARISBREST"
 	SemiColon        = "BAGUETTE"
+	If			 	 = "IF"
+	EndIf			 = "ENDFOR"
 
 	ParenthesesTag = "PARENTHESES"
 	QuotesTag      = "QUOTES"
 	SemiColonTag   = "SEMICOLON"
 	NameTag        = "NAME"
 	Number         = "NUMBER"
+	IfTag		   = "IF"
+	EndIfTag	   = "ENDIF"
+	OperatorTag	   = "OPERATOR"
 )
 
 var (
@@ -47,7 +55,12 @@ func Tokenize(code string) []Token {
 		if IsNumber(character) {
 			tokens = append(tokens, AppendNumberValue())
 		}
+
+		if IsSpecialChar(character){
+			tokens = append(tokens, AppendSpecialCharValue())
+		}
 	}
+	fmt.Println(tokens)
 	return tokens
 }
 
@@ -86,6 +99,20 @@ func AppendStringValue() Token {
 		}
 	}
 
+	if value == If {
+		return Token{
+			Type: IfTag,
+			Value: value,
+		}
+	}
+
+	if value == EndIf {
+		return Token{
+			Type: EndIfTag,
+			Value: value,
+		}
+	}
+
 	return Token{
 		Type:  NameTag,
 		Value: value,
@@ -104,6 +131,20 @@ func AppendNumberValue() Token {
 
 	return Token{
 		Type:  Number,
+		Value: value,
+	}
+}
+
+func AppendSpecialCharValue() Token {
+	var value string
+
+	for IsSpecialChar(character) {
+		value += character
+		i++
+		character = characters[i]
+	}
+	return Token{
+		Type: OperatorTag,
 		Value: value,
 	}
 }
